@@ -1,15 +1,17 @@
 ﻿using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Customers;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
 namespace InvoiceManager.Services.Interfaces
 {
     public interface ICustomerService
-    {
-        List<CustomerResponse> Search(SearchCustomersRequest request);
-        CustomerResponse Get(GetCustomerRequest request);
+    {   
         CreateResponse Create(CustomerRequest request);
-        SuccessResponse Update(CustomerRequest request);        
-        SuccessResponse Delete(DeleteCustomerRequest request);
+        SuccessResponse Update(int id, CustomerRequest request);
+        CustomerResponse Get(int id);
+        SuccessResponse Delete(int id);
+        SuccessResponse Patch(int id, JsonPatchDocument<CustomerRequest> request);
+        List<CustomerResponse> Search(SearchCustomersRequest request);
     }
 }

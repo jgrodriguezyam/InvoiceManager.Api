@@ -3,6 +3,7 @@ using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Companies;
 using InvoiceManager.Services.Interfaces;
+using Microsoft.AspNetCore.JsonPatch;
 using System;
 using System.Collections.Generic;
 
@@ -16,31 +17,36 @@ namespace InvoiceManager.Services.Implements
         public CompanyService(IMapper mapper)
         {
             _mapper = mapper;
-        }
-
-        public List<CompanyResponse> Search(SearchCompaniesRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public CompanyResponse Get(GetCompanyRequest request)
-        {
-            throw new NotImplementedException();
-        }
+        }        
 
         public CreateResponse Create(CompanyRequest request)
         {
             throw new NotImplementedException();
         }            
 
-        public SuccessResponse Update(CompanyRequest request)
+        public SuccessResponse Update(int id, CompanyRequest request)
         {
             throw new NotImplementedException();
         }
 
-        public SuccessResponse Delete(DeleteCompanyRequest request)
+        public SuccessResponse Delete(int id)
         {
             throw new NotImplementedException();
         }
+
+        public CompanyResponse Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SuccessResponse Patch(int id, JsonPatchDocument<CompanyRequest> request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CompanyResponse> Search(SearchCompaniesRequest request)
+        {
+            throw new NotImplementedException();
+        }        
     }
 }
