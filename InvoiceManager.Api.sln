@@ -3,27 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.Api", "InvoiceManager.Api\InvoiceManager.Api.csproj", "{1F6988EC-AFE5-4910-A40C-C6E057A1B997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.Api", "InvoiceManager.Api\InvoiceManager.Api.csproj", "{1F6988EC-AFE5-4910-A40C-C6E057A1B997}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{F8DA25BD-EFBC-4BB8-BF40-8D05ECF11457}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.DataAccess", "InvoiceManager.DataAccess\InvoiceManager.DataAccess.csproj", "{E0F6853B-90B9-4489-B1EE-D1835C52C369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.DataAccess", "InvoiceManager.DataAccess\InvoiceManager.DataAccess.csproj", "{E0F6853B-90B9-4489-B1EE-D1835C52C369}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{578D32BC-6773-4660-A4ED-F7E62776D4CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.Model", "InvoiceManager.Model\InvoiceManager.Model.csproj", "{10CBBE56-7901-42EB-8118-3EA870E7B39A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.Model", "InvoiceManager.Model\InvoiceManager.Model.csproj", "{10CBBE56-7901-42EB-8118-3EA870E7B39A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{41DD9034-C634-49C5-B7EB-26514490F49C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.Infrastructure", "InvoiceManager.Infrastructure\InvoiceManager.Infrastructure.csproj", "{A8B2382B-C032-422A-84FF-C6DE36B0CEB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.Infrastructure", "InvoiceManager.Infrastructure\InvoiceManager.Infrastructure.csproj", "{A8B2382B-C032-422A-84FF-C6DE36B0CEB0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{412FE8B2-A6F5-425F-A899-C632523382FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.DTO", "InvoiceManager.DTO\InvoiceManager.DTO.csproj", "{06D320CF-3732-421F-86F9-F663CA35051C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.DTO", "InvoiceManager.DTO\InvoiceManager.DTO.csproj", "{06D320CF-3732-421F-86F9-F663CA35051C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.Mapper", "InvoiceManager.Mapper\InvoiceManager.Mapper.csproj", "{232E91A6-D76D-4880-A0AC-C5E6EC9A29F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.Mapper", "InvoiceManager.Mapper\InvoiceManager.Mapper.csproj", "{232E91A6-D76D-4880-A0AC-C5E6EC9A29F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.Services", "InvoiceManager.Services\InvoiceManager.Services.csproj", "{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceManager.Services", "InvoiceManager.Services\InvoiceManager.Services.csproj", "{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManager.EntityFrameworkCore", "InvoiceManager.EntityFrameworkCore\InvoiceManager.EntityFrameworkCore.csproj", "{15B7152B-9004-4494-BE16-26E3E902B607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B7152B-9004-4494-BE16-26E3E902B607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B7152B-9004-4494-BE16-26E3E902B607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B7152B-9004-4494-BE16-26E3E902B607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B7152B-9004-4494-BE16-26E3E902B607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{06D320CF-3732-421F-86F9-F663CA35051C} = {412FE8B2-A6F5-425F-A899-C632523382FE}
 		{232E91A6-D76D-4880-A0AC-C5E6EC9A29F4} = {412FE8B2-A6F5-425F-A899-C632523382FE}
 		{9D097B5F-A22F-4DEC-B5BC-61A653AC53EC} = {412FE8B2-A6F5-425F-A899-C632523382FE}
+		{15B7152B-9004-4494-BE16-26E3E902B607} = {F8DA25BD-EFBC-4BB8-BF40-8D05ECF11457}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C32260BA-E3D5-43A9-84BE-643447B4A379}

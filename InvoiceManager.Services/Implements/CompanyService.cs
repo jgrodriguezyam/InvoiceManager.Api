@@ -2,6 +2,7 @@
 using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Companies;
+using InvoiceManager.Model;
 using InvoiceManager.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using System;
@@ -14,14 +15,17 @@ namespace InvoiceManager.Services.Implements
         private readonly ICompanyRepository _companyRepository;
         private readonly IMapper _mapper;
 
-        public CompanyService(IMapper mapper)
+        public CompanyService(ICompanyRepository companyRepository, IMapper mapper)
         {
+            _companyRepository = companyRepository;
             _mapper = mapper;
         }        
 
         public CreateResponse Create(CompanyRequest request)
         {
-            throw new NotImplementedException();
+            var company = _mapper.Map<Company>(request);
+            _companyRepository.Create(company);
+            return null;
         }            
 
         public SuccessResponse Update(int id, CompanyRequest request)

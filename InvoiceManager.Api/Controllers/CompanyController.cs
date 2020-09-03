@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using InvoiceManager.Api.Filters;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Companies;
 using InvoiceManager.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<CreateResponse> Post(CompanyRequest request)
         {
             var createResponse = _companyService.Create(request);

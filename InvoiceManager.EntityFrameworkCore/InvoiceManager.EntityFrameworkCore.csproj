@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200903040547_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903040547_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903065453_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903065453_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903065803_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903065803_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903070014_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903070014_MyFirstMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceManager.DataAccess\InvoiceManager.DataAccess.csproj" />
+    <ProjectReference Include="..\InvoiceManager.Model\InvoiceManager.Model.csproj" />
+  </ItemGroup>
+
+</Project>
