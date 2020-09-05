@@ -2,6 +2,7 @@
 using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Customers;
+using InvoiceManager.Model;
 using InvoiceManager.Services.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using System;
@@ -14,39 +15,56 @@ namespace InvoiceManager.Services.Implements
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        public CustomerService(IMapper mapper)
+        public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
         {
+            _customerRepository = customerRepository;
             _mapper = mapper;
         }
 
         public CreateResponse Create(CustomerRequest request)
         {
-            throw new NotImplementedException();
+            var customer = _mapper.Map<Customer>(request);
+            _customerRepository.Create(customer);
+            return new CreateResponse(customer.Id);
         }                
 
         public SuccessResponse Update(int id, CustomerRequest request)
         {
-            throw new NotImplementedException();
+            var customeryModel = _mapper.Map<Customer>(request);
+            var customer = _customerRepository.GetBy(id);
+            _mapper.Map(customeryModel, customer);
+            _customerRepository.Update(customer);
+            return new SuccessResponse(true);
         }
 
         public CustomerResponse Get(int id)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetBy(id);
+            var customerResponse = _mapper.Map<CustomerResponse>(customer);
+            return customerResponse;
         }
 
         public SuccessResponse Delete(int id)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetBy(id);
+            _customerRepository.Remove(customer);
+            return new SuccessResponse(true);
         }
 
         public SuccessResponse Patch(int id, JsonPatchDocument<CustomerRequest> request)
         {
-            throw new NotImplementedException();
+            var customer = _customerRepository.GetBy(id);
+            var jsonPatch = _mapper.Map<JsonPatchDocument<Customer>>(request);
+            jsonPatch.ApplyTo(customer);
+            _customerRepository.Update(customer);
+            return new SuccessResponse(true);
         }
 
         public List<CustomerResponse> Search(SearchCustomersRequest request)
         {
-            throw new NotImplementedException();
+            var customers = _customerRepository.GetBy(p => p.IsActive);
+            var customersResponse = _mapper.Map<List<CustomerResponse>>(customers);
+            return customersResponse;
         }
     }
 }

@@ -48,9 +48,15 @@ namespace InvoiceManager.EntityFrameworkCore.DataBase
             _invoiceManagerContext.SaveChanges();
         }
 
-        public void Remove<T>(T objectToRemove) where T : new()
+        public void SoftRemove<T>(T objectToRemove) where T : new()
         {
             EventAudit.OnPreDelete(objectToRemove);
+            _invoiceManagerContext.SaveChanges();
+        }
+
+        public void HardRemove<T>(T objectToRemove) where T : new()
+        {
+            _invoiceManagerContext.Remove(objectToRemove);
             _invoiceManagerContext.SaveChanges();
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using InvoiceManager.Api.Filters;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Customers;
 using InvoiceManager.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<CreateResponse> Post(CustomerRequest request)
         {
             var createResponse = _customerService.Create(request);
@@ -27,6 +29,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Put(int id, CustomerRequest request)
         {
             var successResponse = _customerService.Update(id, request);
@@ -34,6 +37,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<CustomerResponse> Get(int id)
         {
             var customerResponse = _customerService.Get(id);
@@ -41,6 +45,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Delete(int id)
         {
             var successResponse = _customerService.Delete(id);
@@ -48,6 +53,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPatch("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Patch(int id, JsonPatchDocument<CustomerRequest> request)
         {
             var successResponse = _customerService.Patch(id, request);
@@ -55,6 +61,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<List<CustomerResponse>> Get([FromQuery] SearchCustomersRequest request)
         {
             var customersResponse = _customerService.Search(request);

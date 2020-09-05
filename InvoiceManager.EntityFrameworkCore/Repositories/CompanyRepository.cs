@@ -33,7 +33,7 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
 
         public void Remove(Company item)
         {
-            _dataBaseTransaction.Remove(item);
+            _dataBaseTransaction.SoftRemove(item);
         }
 
         public void Update(Company item)

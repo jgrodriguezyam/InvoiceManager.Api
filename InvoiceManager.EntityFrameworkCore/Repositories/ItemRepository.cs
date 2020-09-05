@@ -7,36 +7,36 @@ using System.Linq.Expressions;
 
 namespace InvoiceManager.EntityFrameworkCore.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class ItemRepository : IItemRepository
     {
         private readonly IDataBaseTransaction _dataBaseTransaction;
 
-        public CustomerRepository(IDataBaseTransaction dataBaseTransaction)
+        public ItemRepository(IDataBaseTransaction dataBaseTransaction)
         {
             _dataBaseTransaction = dataBaseTransaction;
         }
 
-        public void Create(Customer item)
+        public void Create(Item item)
         {
             _dataBaseTransaction.Insert(item);
         }
 
-        public Customer GetBy(int id)
+        public Item GetBy(int id)
         {
-            return _dataBaseTransaction.GetById<Customer>(item => item.Id == id);
+            return _dataBaseTransaction.GetById<Item>(item => item.Id == id);
         }
 
-        public IEnumerable<Customer> GetBy(Expression<Func<Customer, bool>> predicate)
+        public IEnumerable<Item> GetBy(Expression<Func<Item, bool>> predicate)
         {
             return _dataBaseTransaction.FindBy(predicate);
         }
 
-        public void Remove(Customer item)
+        public void Remove(Item item)
         {
-            _dataBaseTransaction.SoftRemove(item);
+            _dataBaseTransaction.HardRemove(item);
         }
 
-        public void Update(Customer item)
+        public void Update(Item item)
         {
             _dataBaseTransaction.Update(item);
         }

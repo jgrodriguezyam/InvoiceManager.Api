@@ -29,6 +29,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Put(int id, CompanyRequest request)
         {
             var successResponse = _companyService.Update(id, request);
@@ -36,6 +37,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<CompanyResponse> Get(int id)
         {
             var companyResponse = _companyService.Get(id);
@@ -43,6 +45,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Delete(int id)
         {
             var successResponse = _companyService.Delete(id);
@@ -50,6 +53,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpPatch("{id}")]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<SuccessResponse> Patch(int id, JsonPatchDocument<CompanyRequest> request)
         {
             var successResponse = _companyService.Patch(id, request);
@@ -57,6 +61,7 @@ namespace InvoiceManager.Api.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ActionFilterAttribute))]
         public ActionResult<List<CompanyResponse>> Get([FromQuery] SearchCompaniesRequest request)
         {
             var companiesResponse = _companyService.Search(request);

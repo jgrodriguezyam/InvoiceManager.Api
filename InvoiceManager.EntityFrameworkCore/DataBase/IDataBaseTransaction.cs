@@ -11,7 +11,8 @@ namespace InvoiceManager.EntityFrameworkCore.DataBase
         void InsertForSystem<T>(T objectToInsert) where T : class;
         void Update<T>(T objectToUpdate) where T : class;
         void UpdateForSystem<T>(T objectToUpdate) where T : class;
-        void Remove<T>(T objectToRemove) where T : new();
+        void SoftRemove<T>(T objectToRemove) where T : new();
+        void HardRemove<T>(T objectToRemove) where T : new();
         void RemoveForSystem<T>(T objectToRemove) where T : new();
         T GetById<T>(Expression<Func<T, bool>> predicate) where T : class;        
         IEnumerable<T> FindBy<T>(Expression<Func<T, bool>> predicate) where T : class;
