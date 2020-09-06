@@ -11,6 +11,7 @@ namespace InvoiceManager.EntityFrameworkCore.Configurations
             builder.Property(p => p.Name).IsRequired();
             builder.Property(p => p.LastName).IsRequired();
             builder.Property(p => p.Gender).IsRequired();
+            builder.HasMany(p => p.Invoices).WithOne(p => p.Customer).HasForeignKey(p => p.CustomerId);
 
             builder.Property(p => p.CreatedBy).IsRequired();
             builder.Property(p => p.CreatedOn).IsRequired();

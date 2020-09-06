@@ -12,8 +12,7 @@ namespace InvoiceManager.EntityFrameworkCore.Configurations
             builder.Property(p => p.Hours).HasColumnType("decimal(12,2)").IsRequired();
             builder.Property(p => p.Rate).HasColumnType("money").IsRequired();
             builder.Property(p => p.Amount).HasColumnType("money").IsRequired();
-            builder.Property(p => p.InvoiceId).IsRequired();
-            builder.HasOne(p => p.Invoice).WithMany(p => p.Items);
+            builder.HasOne(p => p.Invoice).WithMany(p => p.Items).HasForeignKey(p => p.InvoiceId);
 
             builder.Property(p => p.CreatedBy).IsRequired();
             builder.Property(p => p.CreatedOn).IsRequired();

@@ -1,4 +1,5 @@
 ﻿using InvoiceManager.Model.Base;
+using System.Collections.Generic;
 
 namespace InvoiceManager.Model
 {
@@ -10,6 +11,7 @@ namespace InvoiceManager.Model
         public string City { get; set; }
         public string Phone { get; set; }
         public string CellPhone { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
 
         public bool IsActive { get; set; }
     }

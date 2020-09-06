@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvoiceManager.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(InvoiceManagerContext))]
-    [Migration("20200905204116_MyFirstMigration")]
+    [Migration("20200906185640_MyFirstMigration")]
     partial class MyFirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -203,15 +203,15 @@ namespace InvoiceManager.EntityFrameworkCore.Migrations
             modelBuilder.Entity("InvoiceManager.Model.Invoice", b =>
                 {
                     b.HasOne("InvoiceManager.Model.Company", "Company")
-                        .WithMany()
+                        .WithMany("Invoices")
                         .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("InvoiceManager.Model.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("Invoices")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -220,7 +220,7 @@ namespace InvoiceManager.EntityFrameworkCore.Migrations
                     b.HasOne("InvoiceManager.Model.Invoice", "Invoice")
                         .WithMany("Items")
                         .HasForeignKey("InvoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

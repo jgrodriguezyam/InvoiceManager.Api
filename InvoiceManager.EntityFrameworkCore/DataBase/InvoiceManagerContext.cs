@@ -1,6 +1,7 @@
 ﻿using InvoiceManager.EntityFrameworkCore.Configurations;
 using InvoiceManager.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace InvoiceManager.EntityFrameworkCore.DataBase
 {
@@ -22,6 +23,11 @@ namespace InvoiceManager.EntityFrameworkCore.DataBase
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
             modelBuilder.ApplyConfiguration(new ItemConfiguration());
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().Where(e => !e.IsOwned()).SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
     }
 }

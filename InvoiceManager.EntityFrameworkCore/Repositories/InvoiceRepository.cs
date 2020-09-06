@@ -1,8 +1,10 @@
 ﻿using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.EntityFrameworkCore.DataBase;
 using InvoiceManager.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace InvoiceManager.EntityFrameworkCore.Repositories
@@ -39,6 +41,15 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
         public void Update(Invoice item)
         {
             _dataBaseTransaction.Update(item);
+        }
+
+        public IEnumerable<Invoice> Search(Expression<Func<Invoice, bool>> predicate)
+        {
+            var query = _dataBaseTransaction.GetQueryable<Invoice>().Where(predicate)
+                                                                    .Include(item => item.Company)
+                                                                    .Include(item => item.Customer)
+                                                                    .Include(item => item.Items);
+            return query.ToList();
         }
     }
 }
