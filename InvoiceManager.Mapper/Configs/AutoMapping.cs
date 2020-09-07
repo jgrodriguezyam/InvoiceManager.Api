@@ -72,6 +72,9 @@ namespace InvoiceManager.Mapper.Configs
             #region Item
 
             CreateMap<Item, Item>()
+                .ForMember(dest => dest.Invoice, act => act.Ignore())
+                .ForMember(dest => dest.InvoiceId, act => act.Ignore())
+
                 .ForMember(dest => dest.CreatedBy, act => act.Ignore())
                 .ForMember(dest => dest.CreatedOn, act => act.Ignore())
                 .ForMember(dest => dest.ModifiedBy, act => act.Ignore())

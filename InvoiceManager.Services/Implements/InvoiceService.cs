@@ -32,15 +32,17 @@ namespace InvoiceManager.Services.Implements
         }
 
         public SuccessResponse Update(int id, InvoiceRequest request)
-        {
-            var invoiceModel = _mapper.Map<Invoice>(request);
-            var invoice = _invoiceRepository.GetBy(id);
-            
+        {            
+            var invoice = _invoiceRepository.GetBy(id);            
             var items = _itemRepository.GetBy(p => p.InvoiceId == id);
-            RemoveItems(items, request.Items);
+            var itemsRequest = request.Items.ToList();
 
+            request.Items = null;
+            var invoiceModel = _mapper.Map<Invoice>(request);
             _mapper.Map(invoiceModel, invoice);
             _invoiceRepository.Update(invoice);
+            RemoveItems(items, itemsRequest);
+            CreateAndUpdateItmes(items, itemsRequest, id);            
             return new SuccessResponse(true);
         }
 
@@ -54,7 +56,26 @@ namespace InvoiceManager.Services.Implements
                     _itemRepository.Remove(itemToRemove);
                 }               
             });
-        }         
+        }
+
+        private void CreateAndUpdateItmes(IEnumerable<Item> items, IEnumerable<ItemRequest> itemsRequest, int invoiceId)
+        {
+            itemsRequest.ToList().ForEach(itemRequest => {
+                var itemToUpdate = items.FirstOrDefault(item => item.Id == itemRequest.Id);
+                var itemModel = _mapper.Map<Item>(itemRequest);
+
+                if (itemToUpdate.IsNotNull())
+                {                    
+                    _mapper.Map(itemModel, itemToUpdate);
+                    _itemRepository.Update(itemToUpdate);
+                }
+                else 
+                {
+                    itemModel.InvoiceId = invoiceId;
+                    _itemRepository.Create(itemModel);
+                }
+            });
+        }
 
         public InvoiceResponse Get(int id)
         {

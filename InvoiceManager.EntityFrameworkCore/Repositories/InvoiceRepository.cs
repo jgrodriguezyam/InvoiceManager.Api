@@ -1,5 +1,6 @@
 ﻿using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.EntityFrameworkCore.DataBase;
+using InvoiceManager.Infrastructure.Extensions;
 using InvoiceManager.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,8 +21,9 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
 
         public void Create(Invoice item)
         {
-            foreach (var itemChildToUpdate in item.Items)
-                _dataBaseTransaction.GetEventAudit().OnPreInsert(itemChildToUpdate);
+            if (item.Items.IsNotNull())
+                foreach (var itemChildToUpdate in item.Items)
+                    _dataBaseTransaction.GetEventAudit().OnPreInsert(itemChildToUpdate);
             _dataBaseTransaction.Insert(item);
         }
 
@@ -42,8 +44,9 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
 
         public void Update(Invoice item)
         {
-            foreach (var itemChildToUpdate in item.Items)
-                _dataBaseTransaction.GetEventAudit().OnPreUpdate(itemChildToUpdate);
+            if (item.Items.IsNotNull())
+                foreach (var itemChildToUpdate in item.Items)
+                    _dataBaseTransaction.GetEventAudit().OnPreUpdate(itemChildToUpdate);
             _dataBaseTransaction.Update(item);
         }
 
