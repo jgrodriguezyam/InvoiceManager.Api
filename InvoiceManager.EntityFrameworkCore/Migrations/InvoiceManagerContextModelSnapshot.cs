@@ -176,9 +176,6 @@ namespace InvoiceManager.EntityFrameworkCore.Migrations
                     b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
                     b.Property<int>("ModifiedBy")
                         .HasColumnType("int");
 

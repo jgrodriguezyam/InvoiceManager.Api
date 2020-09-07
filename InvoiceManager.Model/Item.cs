@@ -2,7 +2,7 @@
 
 namespace InvoiceManager.Model
 {
-    public class Item : EntityBase, IDeletable
+    public class Item : EntityBase
     {
         public int Id { get; set; }
         public int Number { get; set; }
@@ -11,7 +11,5 @@ namespace InvoiceManager.Model
         public decimal Amount { get; set; }
         public int InvoiceId { get; set; }
         public Invoice Invoice { get; set; }
-
-        public bool IsActive { get; set; }
     }
 }

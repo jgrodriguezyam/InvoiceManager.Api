@@ -2,6 +2,8 @@
 using InvoiceManager.DataAccess.Repositories;
 using InvoiceManager.DTO.BaseResponse;
 using InvoiceManager.DTO.Messages.Invoices;
+using InvoiceManager.DTO.Messages.Items;
+using InvoiceManager.Infrastructure.Extensions;
 using InvoiceManager.Model;
 using InvoiceManager.Services.Interfaces;
 using System.Collections.Generic;
@@ -33,11 +35,26 @@ namespace InvoiceManager.Services.Implements
         {
             var invoiceModel = _mapper.Map<Invoice>(request);
             var invoice = _invoiceRepository.GetBy(id);
-            _mapper.Map(invoiceModel, invoice);
+            
+            var items = _itemRepository.GetBy(p => p.InvoiceId == id);
+            RemoveItems(items, request.Items);
 
+            _mapper.Map(invoiceModel, invoice);
             _invoiceRepository.Update(invoice);
             return new SuccessResponse(true);
         }
+
+        private void RemoveItems(IEnumerable<Item> items, IEnumerable<ItemRequest> itemsRequest)
+        {
+            items.ToList().ForEach(itemToValidate => {
+                var itemRequest = itemsRequest.FirstOrDefault(itemReq => itemReq.Id == itemToValidate.Id);                
+                if (itemRequest.IsNull())
+                {
+                    var itemToRemove = items.FirstOrDefault(item => item.Id == itemToValidate.Id);
+                    _itemRepository.Remove(itemToRemove);
+                }               
+            });
+        }         
 
         public InvoiceResponse Get(int id)
         {

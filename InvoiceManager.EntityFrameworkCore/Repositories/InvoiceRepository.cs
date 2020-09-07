@@ -20,6 +20,8 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
 
         public void Create(Invoice item)
         {
+            foreach (var itemChildToUpdate in item.Items)
+                _dataBaseTransaction.GetEventAudit().OnPreInsert(itemChildToUpdate);
             _dataBaseTransaction.Insert(item);
         }
 
@@ -40,6 +42,8 @@ namespace InvoiceManager.EntityFrameworkCore.Repositories
 
         public void Update(Invoice item)
         {
+            foreach (var itemChildToUpdate in item.Items)
+                _dataBaseTransaction.GetEventAudit().OnPreUpdate(itemChildToUpdate);
             _dataBaseTransaction.Update(item);
         }
 

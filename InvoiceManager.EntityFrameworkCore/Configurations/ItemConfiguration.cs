@@ -18,7 +18,6 @@ namespace InvoiceManager.EntityFrameworkCore.Configurations
             builder.Property(p => p.CreatedOn).IsRequired();
             builder.Property(p => p.ModifiedBy).IsRequired();
             builder.Property(p => p.ModifiedOn).IsRequired();
-            builder.Property(p => p.IsActive).IsRequired();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InvoiceManager.DataAccess.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,6 +20,7 @@ namespace InvoiceManager.EntityFrameworkCore.DataBase
         IQueryable<T> GetQueryable<T>() where T : class;
         void Commit();
         void Rollback();
-        InvoiceManagerContext GetDbContext();        
+        InvoiceManagerContext GetDbContext();
+        IEventAudit GetEventAudit();
     }
 }

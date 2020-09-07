@@ -99,8 +99,7 @@ namespace InvoiceManager.EntityFrameworkCore.Migrations
                     Hours = table.Column<decimal>(type: "decimal(12,2)", nullable: false),
                     Rate = table.Column<decimal>(type: "money", nullable: false),
                     Amount = table.Column<decimal>(type: "money", nullable: false),
-                    InvoiceId = table.Column<int>(nullable: false),
-                    IsActive = table.Column<bool>(nullable: false)
+                    InvoiceId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

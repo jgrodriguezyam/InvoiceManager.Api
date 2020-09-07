@@ -99,5 +99,10 @@ namespace InvoiceManager.EntityFrameworkCore.DataBase
         {
             return _invoiceManagerContext;
         }
+
+        public IEventAudit GetEventAudit()
+        {
+            return EventAudit;
+        }
     }
 }
