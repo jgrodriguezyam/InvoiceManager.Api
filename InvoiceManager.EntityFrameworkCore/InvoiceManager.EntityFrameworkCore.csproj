@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200903040547_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903040547_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903065453_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903065453_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903065803_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903065803_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903070014_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903070014_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200903070125_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200903070125_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200905201238_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200905201238_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200905201710_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200905201710_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200905201935_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200905201935_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200905202541_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200905202541_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200905204116_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200905204116_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906051027_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906051027_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906052149_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906052149_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906055324_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906055324_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906061756_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906061756_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906061928_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906061928_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906062935_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906062935_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906070854_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906070854_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906070958_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906070958_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906073124_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906073124_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906081053_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906081053_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906084517_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906084517_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906084558_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906084558_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906085208_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906085208_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906090440_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906090440_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906090851_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906090851_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906091502_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906091502_MyFirstMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200906185640_MyFirstMigration.cs" />
+    <Compile Remove="Migrations\20200906185640_MyFirstMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InvoiceManager.DataAccess\InvoiceManager.DataAccess.csproj" />
+    <ProjectReference Include="..\InvoiceManager.Model\InvoiceManager.Model.csproj" />
+  </ItemGroup>
+
+</Project>
